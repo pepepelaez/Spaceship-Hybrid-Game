@@ -31,6 +31,10 @@ After the two users have played their turns the Mother Alien will spawn a parasi
 
 ![Alpha Version Board](testing-board.JPG)
 
+### Block Diagram
+
+![Spaceship-Game Block Diagram](game-block-diagram.JPG)
+
 
 
 
