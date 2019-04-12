@@ -27,7 +27,11 @@ The Spaceship-Hybrid-Game rules are inspired from the collaborative game Pandemi
 ### Intitate
 - This action sets the romm for elf-destruction. To be able to initiate self-destruction in one of the rooms, the room must be empty of parasite aliens. 
 
-After the two users have played their turns the Mother Alien will spawn a parasite in the room she was inhabiting, and then move randomly to a different room, she could also stay in that same room. There can only be two parasites in each room, not counting the Mother Alien. If a third parasite is going to spawn in a room that already contained two parasites, it will create a chain reaction that will add an extra parasite on each adjacent room. If the players set all four rooms to self-destruct, they win, but if the aliens cover all the rooms, the players loose. 
+After the two users have played their turns the Mother Alien will spawn a parasite in the room she was inhabiting, and then move randomly to a different room, she could also stay in that same room. There can only be two parasites in each room, not counting the Mother Alien. If a third parasite is going to spawn in a room that already contained two parasites, it will create a chain reaction that will add an extra parasite on each adjacent room. If the players set all four rooms to self-destruct, they win, but if the aliens cover all the rooms, the players loose.
+
+![Alpha Version Board](testing-board.jpg)
+
+
 
 
 
