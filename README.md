@@ -10,7 +10,20 @@ The idea behind this project is to give the user a different gaming experience. 
 
 ## Component Parts
 
-For the Hardware the main part is
+On the hardware side, there's a small box you plug into an outlet, into which you then plug in whatever electrical device you like. That box will need a few main components:
+- An arduino board that controls the different components.
+- Many different LEDs with different colors depending on what they represent (Player position, parasites, Mother Alien etc...).
+- A speaker to add sound for alerts.
+- A wifi chip, to transmit what the arduino is doing to the cloud and receive the button instructions from the cloud. 
+- A cardboard game board where the different components are placed.
+
+For the software, there's a web page that shows you the actions that you can do, the rooms where you can move and a monitor that updates on the latest thing that happened remotely, its components would be:
+- A database, to store reported current usage data. (DATA)
+- A user login system, to uniquely identify people coming to the site and connect to the correct devices.
+- A monitor that communicates all the devices and updates on what is happening. (OUTPUT)
+- A few buttons for the player to choose different actions in their turns. (INPUT)
+- A way to block commands when it is not the turn of the player.
+
 
 ## Rules of the Game
 
@@ -34,6 +47,22 @@ After the two users have played their turns the Mother Alien will spawn a parasi
 ### Block Diagram
 
 ![Spaceship-Game Block Diagram](game-block-diagram.JPG)
+
+## Challenges
+
+For this project, the biggest test is going to be to make the basic rules of th e game to work, since i have little experience in coding games, how to structure them or write commands. Just getting the code of the game working might be challenging, but from the experience I have I think is doable. From assingments done in class I aquired knowledge and confidence to work connecting arduino to a react App. However, my knowledge is basic and I will have to expand on it to build some of the game's assets. An example of something that I am not sure how to accomplis is to be able to have two players only on the App. 
+
+In the Arduino aspect of the project I feel confident since I have experience working with it, but there are still some difficulties involving the hardware. The arduino does not include enough ports for all the assents I would like to include, so I don't know how to overcome this problem and will have to look for solutions. 
+
+I have little experience on building interfaces, but a rough one should work to get the first model going.
+
+## Timeline
+
+- Week 1: Write proposal, learn about coding games, might try an arduino only version first
+- Week 2: Acquire hardware components: relay, current sensor, WiFi, and build a prototype circuit with those pieces.
+- Week 3: Build a first version of the software that displays all the buttons and commands.
+- Week 4: Integrate all the components together and debug.
+- Week 5: Present complete project.
 
 
 
