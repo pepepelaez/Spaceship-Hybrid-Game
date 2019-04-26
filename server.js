@@ -19,25 +19,25 @@ const PORT = 8000;
 // create the server module
 let server = require('http').createServer(async (req, res) => {
   console.log("Got request!", req.method, req.url);
-  
+
   // get the file path out of the URL, stripping any "query string"
   let path = url.parse(req.url, true).pathname
-  
+
   // then, based on the file path:
   switch (path) {
-  case '/': 
-  case '/client.js': 
+  case '/':
+  case '/client.js':
   case '/index.html':
     // if it's one of these known files above, then...
-    
+
     // remove any path elements that go "up" in the file hierarchy
     let safePath = path.split('/').filter(e => ! e.startsWith('.')).join('/');
-    
+
     // also. requests without a file path should be served the index.html file.
     if (safePath === '/') {
       safePath = '/index.html';
     }
-    
+
     // try to get the requested file.
     try {
       let fullPath = '.' + safePath;
@@ -45,7 +45,7 @@ let server = require('http').createServer(async (req, res) => {
         // if it's a valid file, then serve it! The mime library uses the
         // file extension to figure out the "mimetype" of the file.
         res.writeHead(200, {'Content-Type': mime.getType(safePath)});
-        
+
         // create a "read stream" and "pipe" (connect) it to the response.
         // this sends all the data from the file to the client.
         fs.createReadStream(fullPath).pipe(res);
@@ -56,7 +56,7 @@ let server = require('http').createServer(async (req, res) => {
         res.end("Couldn't find your URL...");
       }
     } catch (err) {
-      // if there's an error reading the file, return a 
+      // if there's an error reading the file, return a
       // "500 internal server error" error
       console.log("Error reading static file?", err);
       res.writeHead(500, {'Content-Type': 'text/html'});
@@ -85,7 +85,7 @@ server.listen(PORT);
 let allConnections = new Set();
 
 // connect to the Arduino using a "serial port"
-let serial = new SerialPort('/dev/ttyACM0', {baudRate: 115200});
+let serial = new SerialPort('/dev/cu.usbmodem14301', {baudRate: 115200});
 
 // if there's an error, quit the server.
 serial.on('error', () => {
@@ -124,27 +124,27 @@ let wsServer = new WebSocketServer({
 wsServer.on('request', request => {
   // accept the connection
   let connection = request.accept(null, request.origin);
-  
+
   // add it to the set of all connections
   allConnections.add(connection);
-    
+
   // when a message comes in on that connection
   connection.on('message', message => {
     // ignore it if it's not text
     if (message.type !== 'utf8') {
       return;
     }
-    
+
     // get the text out if it is text.
     let messageString = message.utf8Data;
-    
+
     // if we're connected to the serial port, send the message to the Arduino!
     if (serial) {
       console.log("<-", messageString);
       serial.write(messageString+'\n');
     }
   });
-  
+
   // when this connection closes, remove it from the set of all connections.
   connection.on('close', connection => {
     allConnections.delete(connection);
