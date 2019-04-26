@@ -31,9 +31,29 @@ class ControlComponent extends React.Component {
     // four buttons. see index.html for styling.
     return <div className="wrapper">
         <button onClick={() => this.sendMessage("P1a")}>P1: Go to Room A</button><br />
-        <button onClick={() => this.sendMessage("P1b")}>P1: Go to Room B</button>
+        <button onClick={() => this.sendMessage("P1b")}>P1: Go to Room B</button><br />
         <button onClick={() => this.sendMessage("P1c")}>P1: Go to Room C</button><br />
-        <button onClick={() => this.sendMessage("P1d")}>P1: Go to Room D</button>
+        <button onClick={() => this.sendMessage("P1d")}>P1: Go to Room D</button><br />
+        <button onClick={() => this.sendMessage("P2a")}>P2: Go to Room A</button><br />
+        <button onClick={() => this.sendMessage("P2b")}>P2: Go to Room B</button><br />
+        <button onClick={() => this.sendMessage("P2c")}>P2: Go to Room C</button><br />
+        <button onClick={() => this.sendMessage("P2d")}>P2: Go to Room D</button><br />
+        <button onClick={() => this.sendMessage("A1a")}>Spawn Alien1 Room A</button><br />
+        <button onClick={() => this.sendMessage("A1b")}>Spawn Alien1 Room B</button><br />
+        <button onClick={() => this.sendMessage("A1c")}>Spawn Alien1 Room C</button><br />
+        <button onClick={() => this.sendMessage("A1d")}>Spawn Alien1 Room D</button><br />
+        <button onClick={() => this.sendMessage("A2a")}>Spawn Alien2 Room A</button><br />
+        <button onClick={() => this.sendMessage("A2b")}>Spawn Alien2 Room B</button><br />
+        <button onClick={() => this.sendMessage("A2c")}>Spawn Alien2 Room C</button><br />
+        <button onClick={() => this.sendMessage("A2d")}>Spawn Alien2 Room D</button><br />
+        <button onClick={() => this.sendMessage("KA1P1")}>P1: Kill Alien 1</button><br />
+        <button onClick={() => this.sendMessage("KA2P1")}>P1: Kill Alien 2</button><br />
+        <button onClick={() => this.sendMessage("KA1P2")}>P2: Kill ALien 1</button><br />
+        <button onClick={() => this.sendMessage("KA2P2")}>P2: Kill Alien 2</button><br />
+        <button onClick={() => this.sendMessage("SP1")}>P1: Set Room</button><br />
+        <button onClick={() => this.sendMessage("SP2")}>P2: Set Room</button><br />
+
+
       </div>
   }
 }
