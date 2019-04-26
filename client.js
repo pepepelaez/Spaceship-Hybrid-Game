@@ -30,10 +30,10 @@ class ControlComponent extends React.Component {
   render() {
     // four buttons. see index.html for styling.
     return <div className="wrapper">
-        <button onClick={() => this.sendMessage("P1: Go to Room A")}>P1a</button><br />
-        <button onClick={() => this.sendMessage("P1: Go to Room B")}>P1b</button>
-        <button onClick={() => this.sendMessage("P1: Go to Room C")}>P1c</button><br />
-        <button onClick={() => this.sendMessage("P1: Go to Room D")}>P1d</button>
+        <button onClick={() => this.sendMessage("P1a")}>P1: Go to Room A</button><br />
+        <button onClick={() => this.sendMessage("P1b")}>P1: Go to Room B</button>
+        <button onClick={() => this.sendMessage("P1c")}>P1: Go to Room C</button><br />
+        <button onClick={() => this.sendMessage("P1d")}>P1: Go to Room D</button>
       </div>
   }
 }
