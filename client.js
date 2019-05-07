@@ -1,3 +1,55 @@
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
+
+import "./styles.css";
+
+//payers pages
+var pages = {
+  start: {
+    content:
+      "Welcome to the Koros Starship, identify yourself",
+    image1: "",
+    label1: "I am the Engineer",
+    label2: "I am the Pilot",
+    page1: "player1",
+    page2: "player2"
+  }
+
+  class Page extends Component {
+  render() {
+    var pageData = pages[this.props.pageName];
+    if (!pageData) {
+      throw new Error("Eek! No page here!");
+    }
+
+    var goToPage = this.props.goToPage;
+    //var useUserData = this.props.useUserData;
+
+    function goToPage1() {
+      goToPage(pageData.page1);
+    }
+    function goToPage2() {
+      goToPage(pageData.page2);
+    }
+
+  return (
+    <div className="App">
+      <Page
+        pageName={this.state.page}
+        goToPage={this.goToPage}
+        userData={this.state.userData}
+        saveUserData={this.saveUserData}
+        {button1}
+        {button2}
+        //useUserData={this.useUserData}
+      />
+    </div>
+  );
+  }
+}
+
+
+
 class ControlComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -25,6 +77,31 @@ class ControlComponent extends React.Component {
   sendMessage(message) {
     // send the message to the server over the websocket.
     this.socket.send(message);
+  }
+
+  class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      page: "start",
+      userData: {}
+    };
+
+    this.goToPage = this.goToPage.bind(this);
+
+    goToPage(pageName) {
+    this.setState({
+      page: pageName
+    });
+  }
+
+  saveUserData(key, value) {
+    function updateState(state) {
+      var newState = { userData: { ...state.userData, [key]: value } };
+      return newState;
+    }
+    this.setState(updateState);
   }
 
   render() {
