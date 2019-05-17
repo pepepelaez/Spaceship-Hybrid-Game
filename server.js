@@ -119,6 +119,8 @@ parser.on('data', data => {
 let wsServer = new WebSocketServer({
   httpServer: server
 });
+var nextPlayer = 1;
+
 
 // when there's a new websocket coming in...
 wsServer.on('request', request => {
@@ -142,6 +144,19 @@ wsServer.on('request', request => {
     if (serial) {
       console.log("<-", messageString);
       serial.write(messageString+'\n');
+    }
+
+    if (messageString.includes("P"+nextPlayer)) {
+      nextPlayer += 1;
+    }
+    if(nextPlayer == 3) {
+      nextPlayer = 1;
+      console.log("<-", "M");
+      serial.write("M"+'\n');
+    }
+
+    for (let connection of allConnections) {
+      connection.send("NP"+nextPlayer);
     }
   });
 
